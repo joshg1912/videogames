@@ -1,4 +1,6 @@
 class VideogameController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def index
         videogame = VideoGame.all
         render json: videogame
@@ -14,12 +16,12 @@ class VideogameController < ApplicationController
             name: params[:name],
             year: params[:year],
             plot: params[:plot],
-            user_id: params[:id], #must change when authentication is implemented
+            user_id: params[:user_id],
         )
         if videogame.save
-            render json: videogame
+        render json: videogame
         else
-            render json: {errors: videogame.errors}, status:401
+            render json: videogame.errors
         end
     end
 
