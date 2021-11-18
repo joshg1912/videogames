@@ -1,3 +1,3 @@
 class User < ApplicationRecord
- has_many :videogames
+ has_many :videogame
 end
