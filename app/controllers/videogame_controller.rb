@@ -25,6 +25,21 @@ class VideogameController < ApplicationController
         end
     end
 
+    def update
+        videogame = VideoGame.find_by(id: params[:id])
+
+        videogame.name = params["name"] || videogame.name
+        videogame.year = params["year"] || videogame.year
+        videogame.plot = params["plot"] || videogame.plot
+
+        if videogame.save
+            render json: videogame
+        else
+            render json: videogame.errors
+        end
+
+    end
+
 
 
 

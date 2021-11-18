@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "/users" => "users#index"
   get "/videogames/:id" => "videogame#show"
   post "/videogames" => "videogame#create"
+  patch "/videogames/:id" => "videogame#update"
 end
