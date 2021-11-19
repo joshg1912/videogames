@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/videogames/:id" => "videogame#show"
   post "/videogames" => "videogame#create"
   patch "/videogames/:id" => "videogame#update"
+  get "/myvideogames/:id" => "videogame#showall"
 end

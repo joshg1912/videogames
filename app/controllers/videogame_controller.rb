@@ -31,13 +31,18 @@ class VideogameController < ApplicationController
         videogame.name = params["name"] || videogame.name
         videogame.year = params["year"] || videogame.year
         videogame.plot = params["plot"] || videogame.plot
+        videogame.user_id = params["user_id"] || videogame.user_id
 
         if videogame.save
             render json: videogame
         else
             render json: videogame.errors
         end
+    end
 
+    def showall
+        videogame = VideoGame.where(user_id: params["id"])
+        render json: videogame
     end
 
 
